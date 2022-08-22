@@ -1,0 +1,9 @@
+
+INTRODUÇÃO
+O que é React
+Uma biblioteca JS para a criação de interfaces;
+Utilizado para construir SPAs (Single Page Appication);
+Baseado em componentes;
+Utiliza o JSX para renderizar HTML;
+E aplicar o Virtual DOM para realzar alterações de DOM;
+Podemos adicionar a um projeto ou criar um projeto com ele.
