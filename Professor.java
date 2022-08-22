@@ -11,4 +11,5 @@ public class Professor extends Docente{
     public String toString() {
         return "Especialidade: " + especialidade;
     }
+
 }

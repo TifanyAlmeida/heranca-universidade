@@ -39,16 +39,16 @@ public class Aluno extends Discente{
 
     public void setStatus(boolean status) {
         if(getMedia()>=5 && 100- (Double.parseDouble(String.valueOf((getFaltas()*100)/30)))>75){
-            this.status = true;
+            status = true;
         }
-
+        this.status = status;
     }
 
     @Override
     public String toString() {
         return
                 "Faltas: " + faltas +
-                "\nStatus: " + status+
+                "\nStatus: " + getStatus()+
                 "\nNotas: "+provas[0]+", "+provas[1]+", "+provas[2];
     }
 }

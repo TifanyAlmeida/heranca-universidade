@@ -22,7 +22,8 @@ public class Disciplina {
         int cont = 0;
         for(Aluno aluno: listaAlunos) {
             cont++;
-            System.out.println("\n\n"+cont+" - "+aluno.getNome()+"\nIdade: "+aluno.getIdade()+"\nMédia: "+ aluno.getMedia()+"\n"+aluno);
+            System.out.println("\n\n"+cont+" - "+aluno.getNome()+"\nIdade: "+aluno.getIdade()+"\n"+aluno);
+            System.out.printf("Média: %.2f",aluno.getMedia());
         }
     }
     void imprimirProfessor(){
