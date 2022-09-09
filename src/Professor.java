@@ -13,11 +13,11 @@ public class Professor extends Docente{
     }
     @Override
     public void aumentarSalario(){
-        this.salario = this.salario + (this.salario * 10) / 100;
+        this.salario = 7.000 + (7.000 * 10) / 100;
     }
     @Override
     public void diminuirSalario(){
-        this.salario = this.salario - (this.salario * 10) / 100;
+        this.salario = 7.000 - (7.000 * 10) / 100;
     }
 
 }

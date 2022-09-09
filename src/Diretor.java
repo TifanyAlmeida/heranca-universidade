@@ -12,10 +12,11 @@ public class Diretor extends Docente{
     }
     @Override
     public void aumentarSalario(){
-        this.salario = this.salario*1.20;
+        this.salario = 16.000 + (16.000 * 20) / 100;
     }
     @Override
-    public void diminuirSalario(){
-        this.salario = this.salario-1.05;
+    public void diminuirSalario()
+    {
+        this.salario = 16000 - (16.000 * 20) / 100;
     }
 }

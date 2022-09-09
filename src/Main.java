@@ -3,33 +3,31 @@ public class Main {
     public static void main(String[] args) {
 
         int op1, op2, instituto, disciplina, idadeM=0, anoM=0, faltas = 0;
-        String nomeM = "", emailM="", formacaoM="",especialidadeM="";
+        String nomeM = "", emailM="", formacaoM="",especialidadeM="", turma="", area="";
         double nota1 = 0, nota2 = 0, nota3 = 0;
 
         Scanner tec = new Scanner(System.in);
 
         Universidade universidade = new Universidade("IFSP");
-        Coordenador coordenador = new Coordenador("Kênia", "kenia@gmail.com", 38, 11000, "Matemática", "1°Info");
-        Diretor diretor= new Diretor("Carolina Jangoo", "jango@gmail.com", 33, 16000, "Pedagogia", "Tecnológica");
 
       do {
           System.out.println("+=+=+=+=+= MENU =+=+=+=+=+");
           System.out.println("....... "+universidade+" .......");
-          System.out.println(".Diretor: "+diretor.getNome()+"\n - Salário: R$ "+diretor.getSalario()+" -");
           System.out.println("\n1 - Institutos");
           System.out.println("2 - Disciplinas");
           System.out.println("3 - Monitores");
           System.out.println("4 - Alunos");
           System.out.println("5 - Professores");
           System.out.println("6 - Coordenador");
-          System.out.println("7 - Sair");
+          System.out.println("7 - Diretor");
+          System.out.println("8 - Sair");
 
 
           System.out.print("\n- Opção: ");
           op1 = tec.nextInt();
           tec.nextLine();
 
-          if (op1==7){
+          if (op1==8){
               break;
           }
 
@@ -43,7 +41,7 @@ public class Main {
           System.out.println("==========================");
 
           if(op2 == 2) {
-              if (op1 == 3 || op1 == 4 || op1 == 5) {
+              if (op1 == 3 || op1 == 4 || op1 == 5 || op1 == 6 || op1 == 7) {
                   System.out.print("\nNome: ");
                   nomeM = tec.nextLine();
                   System.out.print("\nEmail: ");
@@ -75,13 +73,21 @@ public class Main {
                   nota3 = tec.nextDouble();
                   tec.nextLine();
               }
-              if (op1 == 5) {
+              if (op1 == 5 || op1 == 6 || op1 == 7) {
 
                   System.out.print("\nFormação: ");
                   formacaoM = tec.nextLine();
 
                   System.out.print("\nEspecialidade: ");
                   especialidadeM = tec.nextLine();
+              }
+              if(op1 == 6){
+                  System.out.print("\nTurma: ");
+                  turma = tec.nextLine();
+              }
+              if(op1 == 7){
+                  System.out.print("\nÁrea: ");
+                  area = tec.nextLine();
               }
           }
 
@@ -91,18 +97,8 @@ public class Main {
                   if (op2 == 2) {
                       System.out.print("\nNome do Curso: ");
                       String nome = tec.nextLine();
-                      System.out.print("\nNome do Coordenador de Curso: ");
-                      String nomeCoordenador = tec.nextLine();
-                      System.out.println("Idade: ");
-                      int idade = tec.nextInt();
-                      tec.nextLine();
-                      System.out.print("\nFormação: ");
-                      String formacao = tec.nextLine();
-                      System.out.print("\nTurma: ");
-                      String turma = tec.nextLine();
 
                       universidade.adicionarInstituto(new Instituto(nome));
-                      universidade.listaInstitutos.get(universidade.listaInstitutos.size()-1).adicionarCoordenador(new Coordenador(nomeCoordenador, nomeCoordenador+"@gmail.com", 38, 11000, formacao, turma));
                       System.out.println("\n# DADOS ADICIONADOS COM SUCESSO! #\n");
 
                   } else if (op2 == 1) {
@@ -189,14 +185,59 @@ public class Main {
                       Professor professor = new Professor(nomeM, emailM, idadeM, 7000, formacaoM, especialidadeM);
                       universidade.listaInstitutos.get(instituto - 1).listaDisciplina.get(disciplina - 1).adicionarProfessor(professor);
                   } else if (op2 == 1) {
-                      System.out.println("\n¨¨¨¨¨¨ Professores ¨¨¨¨¨¨");
-
+                      System.out.println("\n¨¨¨¨¨¨ Docentes ¨¨¨¨¨¨");
                       universidade.listaInstitutos.get(instituto - 1).listaDisciplina.get(disciplina - 1).imprimirProfessor();
                   }
                   System.out.println("\n¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
                   break;
               }
+              case 6: {
+                  System.out.println("\n¨¨¨¨¨¨ Coordenadores ¨¨¨¨¨¨");
+
+                  universidade.imprmirIntitutos();
+                  System.out.print("\nEm qual Instituto deseja adicionar: ");
+                  instituto = tec.nextInt();
+                  tec.nextLine();
+
+                  universidade.listaInstitutos.get(instituto - 1).imprimirDisciplina();
+                  System.out.print("\nEm qual disciplina deseja adicionar: ");
+                  disciplina = tec.nextInt();
+                  tec.nextLine();
+
+                  if (op2 == 2) {
+                      Coordenador coordenador = new Coordenador(nomeM, emailM, idadeM, 11000, formacaoM, turma);
+                      universidade.listaInstitutos.get(instituto - 1).listaDisciplina.get(disciplina - 1).adicionarCoordenador(coordenador);
+                  } else if (op2 == 1) {
+                      System.out.println("\n¨¨¨¨¨¨ Docentes ¨¨¨¨¨¨");
+                      universidade.listaInstitutos.get(instituto - 1).listaDisciplina.get(disciplina - 1).imprimirCoordenador();
+                  }
+                  System.out.println("\n¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
+                  break;
+              }
+              case 7: {
+                  System.out.println("\n¨¨¨¨¨¨ Diretores ¨¨¨¨¨¨");
+
+                  universidade.imprmirIntitutos();
+                  System.out.print("\nEm qual Instituto deseja adicionar: ");
+                  instituto = tec.nextInt();
+                  tec.nextLine();
+
+                  universidade.listaInstitutos.get(instituto - 1).imprimirDisciplina();
+                  System.out.print("\nEm qual disciplina deseja adicionar: ");
+                  disciplina = tec.nextInt();
+                  tec.nextLine();
+
+                  if (op2 == 2) {
+                      Diretor diretor = new Diretor(nomeM, emailM, idadeM, 16000, formacaoM, area);
+                      universidade.listaInstitutos.get(instituto - 1).listaDisciplina.get(disciplina - 1).adicionarDiretor(diretor);
+                  } else if (op2 == 1) {
+                      System.out.println("\n¨¨¨¨¨¨ Docentes ¨¨¨¨¨¨");
+                      universidade.listaInstitutos.get(instituto - 1).listaDisciplina.get(disciplina - 1).imprimirDiretor();
+                  }
+                  System.out.println("\n¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
+                  break;
+              }
           }
-      }while (op1 != 7) ;
+      }while (op1 != 8) ;
     }
 }

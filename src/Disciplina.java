@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Disciplina {
     String nome;
     ArrayList<Aluno> listaAlunos = new ArrayList<>();
-    ArrayList<Professor> listaProfessores = new ArrayList<>();
+    ArrayList<Docente> listaDocentes = new ArrayList<>();
     ArrayList<Monitor> listaMonitores = new ArrayList<>();
     double qtd_aprovados = 0;
     double por_aprovados = 0;
@@ -22,8 +22,15 @@ public class Disciplina {
         }
 
     }
+
     void adicionarProfessor(Professor professor){
-        listaProfessores.add(professor);
+        listaDocentes.add(professor);
+    }
+    void adicionarCoordenador(Coordenador coordenador){
+        listaDocentes.add(coordenador);
+    }
+    void adicionarDiretor(Diretor diretor){
+        listaDocentes.add(diretor);
     }
     void adicionarMonitores(Monitor monitor){
         listaMonitores.add(monitor);
@@ -40,8 +47,7 @@ public class Disciplina {
     }
     void imprimirProfessor(){
         int cont = 0;
-
-        for(Professor professor: listaProfessores){
+        for(Docente professor: listaDocentes){
             cont++;
             if(listaAlunos.size()!=0) {
                 if (por_aprovados > 80) {
@@ -50,7 +56,8 @@ public class Disciplina {
                       professor.diminuirSalario();
                 }
             }
-            System.out.println("\n\n"+cont+" - "+professor.getNome()+"\nIdade: "+professor.getIdade()+"\nSalário R$ "+(professor.getSalario()));
+            System.out.println("\n\n"+cont+" - "+professor.getNome()+"\nIdade: "+professor.getIdade());
+            System.out.printf("\nSalário R$ %.2f",professor.getSalario());
          }
     }
     void imprimirMoinitor(){
@@ -67,11 +74,44 @@ public class Disciplina {
                     monitor.setAvaliacao(false);
                 }
             }
-            System.out.println("\n\n"+cont+" - "+monitor.getNome()+"\nIdade: "+monitor.getIdade()+"\nBolsa R$ "+(monitor.getBolsa())+"\nAvaliação: "+monitor.getAvaliacao());
+            System.out.println("\n\n"+cont+" - "+monitor.getNome()+"\nIdade: "+monitor.getIdade()+"\nAvaliação: "+monitor.getAvaliacao());
+            System.out.printf("\nSalário R$ %.2f",monitor.getBolsa());
             System.out.println("\n");
         }
     }
 
+    void imprimirDiretor(){
+        int cont = 0;
+        for(Docente diretor: listaDocentes){
+            cont++;
+            if(listaAlunos.size()!=0) {
+                if (por_aprovados > 80) {
+                    diretor.aumentarSalario();
+                } else if (por_aprovados < 50) {
+                    diretor.diminuirSalario();
+                }
+            }
+            System.out.println("\n\n"+cont+" - "+diretor.getNome()+"\nIdade: "+diretor.getIdade());
+            System.out.printf("\nSalário R$ %.2f",diretor.getSalario());
+            System.out.println("\n");
+        }
+    }
+    void imprimirCoordenador(){
+        int cont = 0;
+        for(Docente coordenador: listaDocentes){
+            cont++;
+            if(listaAlunos.size()!=0) {
+                if (por_aprovados > 80) {
+                    coordenador.aumentarSalario();
+                } else if (por_aprovados < 50) {
+                    coordenador.diminuirSalario();
+                }
+            }
+            System.out.println("\n\n"+cont+" - "+coordenador.getNome()+"\nIdade: "+coordenador.getIdade());
+            System.out.printf("\nSalário R$ %.2f",coordenador.getSalario());
+            System.out.println("\n");
+        }
+    }
     @Override
     public String toString() {
         return nome;

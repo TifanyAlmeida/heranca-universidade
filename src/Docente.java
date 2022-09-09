@@ -24,10 +24,10 @@ public class Docente extends Membro{
                 "\nFormação: " + formacao;
     }
     public void aumentarSalario(){
-        this.salario = this.salario*1.05;
+        this.salario = this.salario*1;
     }
 
     public void diminuirSalario(){
-        this.salario = this.salario-1.05;
+        this.salario = this.salario*1;
     }
 }
