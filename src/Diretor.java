@@ -6,15 +6,6 @@ public class Diretor extends Docente{
         super(nome, email, idade, salario, formacao);
         this.area = area;
     }
-
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
-    }
-
     @Override
     public String toString() {
         return "Área: " + area;

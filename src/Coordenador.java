@@ -7,14 +7,6 @@ public class Coordenador extends Docente{
         this.turma = turma;
     }
 
-    public String getTurma() {
-        return turma;
-    }
-
-    public void setTurma(String turma) {
-        this.turma = turma;
-    }
-
     @Override
     public String toString() {
         return "Turma: " + turma;

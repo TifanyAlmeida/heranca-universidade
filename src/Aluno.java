@@ -13,17 +13,7 @@ public class Aluno extends Discente{
     public int getFaltas() {
         return faltas;
     }
-
-    public void setFaltas(int faltas) {
-        this.faltas = faltas;
-    }
-
-    public double getMedia() {
-        setMedia(this.media);
-        return media;
-    }
-
-    public void setMedia(double media) {
+    public void setMedia() {
         double acumular=0;
         for (double prova:this.provas) {
             acumular=acumular+prova;
@@ -31,6 +21,12 @@ public class Aluno extends Discente{
         }
         this.media= acumular/ this.provas.length;
     }
+
+    public double getMedia() {
+        setMedia();
+        return media;
+    }
+
 
     public boolean getStatus() {
         setStatus(this.status);

@@ -7,14 +7,6 @@ public class Discente extends Membro{
         this.ano = ano;
     }
 
-    public int getAno() {
-        return ano;
-    }
-
-    public void setAno(int ano) {
-        this.ano = ano;
-    }
-
     @Override
     public String toString() {
         return  "Ano: " + ano;
