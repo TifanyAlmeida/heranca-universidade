@@ -13,10 +13,10 @@ public class Coordenador extends Docente{
     }
     @Override
     public void aumentarSalario(){
-        this.salario = 11.000 + (11.000 * 15) / 100;
+        this.salario = 11000 + ((11000 * 15) / 100);
     }
     @Override
     public void diminuirSalario(){
-        this.salario = 11.000 - (11.000 * 15) / 100;
+        this.salario = 11000 - ((11000 * 15) / 100);
     }
 }
