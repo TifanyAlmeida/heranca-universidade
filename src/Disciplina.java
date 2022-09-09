@@ -20,6 +20,7 @@ public class Disciplina {
             qtd_aprovados+=1;
             por_aprovados = (qtd_aprovados*100)/listaAlunos.size();
         }
+
     }
     void adicionarProfessor(Professor professor){
         listaProfessores.add(professor);
@@ -43,15 +44,14 @@ public class Disciplina {
         for(Professor professor: listaProfessores){
             cont++;
             if(listaAlunos.size()!=0) {
-                double salario = professor.getSalario();
                 if (por_aprovados > 80) {
-                    professor.setSalario(salario + (salario * 10) / 100);
+                    professor.aumentarSalario();
                 } else if (por_aprovados < 50) {
-                    professor.setSalario(salario - (salario * 10) / 100);
+                      professor.diminuirSalario();
                 }
             }
             System.out.println("\n\n"+cont+" - "+professor.getNome()+"\nIdade: "+professor.getIdade()+"\nSalário R$ "+(professor.getSalario()));
-        }
+         }
     }
     void imprimirMoinitor(){
         int cont = 0;
@@ -59,12 +59,11 @@ public class Disciplina {
         for(Monitor monitor: listaMonitores){
             cont++;
             if(listaAlunos.size()!=0) {
-                double salario = monitor.getBolsa();
                 if (por_aprovados > 80) {
-                    monitor.setBolsa(salario + (salario * 5) / 100);
+                    monitor.aumentarBolsa();
                     monitor.setAvaliacao(true);
                 } else if (por_aprovados < 50) {
-                    monitor.setBolsa(salario - (salario * 5) / 100);
+                    monitor.diminuirBolsa();
                     monitor.setAvaliacao(false);
                 }
             }

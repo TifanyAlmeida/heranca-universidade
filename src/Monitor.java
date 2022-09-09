@@ -30,4 +30,10 @@ public class Monitor extends Discente{
         return "Bolsa: " + bolsa +
                 "\nAvaliação: " + avaliacao;
     }
+    public void aumentarBolsa(){
+        this.bolsa = this.bolsa*1.05;
+    }
+    public void diminuirBolsa(){
+        this.bolsa =  this.bolsa - (this.bolsa * 5) / 100;
+    }
 }

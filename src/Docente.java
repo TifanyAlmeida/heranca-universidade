@@ -1,6 +1,6 @@
 public class Docente extends Membro{
 
-    private double salario;
+    protected double salario;
     private String formacao;
 
     public Docente(String nome, String email, int idade, double salario, String formacao) {
@@ -22,5 +22,12 @@ public class Docente extends Membro{
     public String toString() {
         return "Salário: " + salario +
                 "\nFormação: " + formacao;
+    }
+    public void aumentarSalario(){
+        this.salario = this.salario*1.05;
+    }
+
+    public void diminuirSalario(){
+        this.salario = this.salario-1.05;
     }
 }

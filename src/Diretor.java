@@ -10,4 +10,12 @@ public class Diretor extends Docente{
     public String toString() {
         return "Área: " + area;
     }
+    @Override
+    public void aumentarSalario(){
+        this.salario = this.salario*1.20;
+    }
+    @Override
+    public void diminuirSalario(){
+        this.salario = this.salario-1.05;
+    }
 }

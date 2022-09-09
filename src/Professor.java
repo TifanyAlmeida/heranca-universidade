@@ -11,5 +11,13 @@ public class Professor extends Docente{
     public String toString() {
         return "Especialidade: " + especialidade;
     }
+    @Override
+    public void aumentarSalario(){
+        this.salario = this.salario + (this.salario * 10) / 100;
+    }
+    @Override
+    public void diminuirSalario(){
+        this.salario = this.salario - (this.salario * 10) / 100;
+    }
 
 }

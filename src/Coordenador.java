@@ -11,4 +11,12 @@ public class Coordenador extends Docente{
     public String toString() {
         return "Turma: " + turma;
     }
+    @Override
+    public void aumentarSalario(){
+        this.salario = this.salario*1.15;
+    }
+    @Override
+    public void diminuirSalario(){
+        this.salario = this.salario-1.05;
+    }
 }

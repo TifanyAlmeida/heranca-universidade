@@ -15,21 +15,21 @@ public class Main {
       do {
           System.out.println("+=+=+=+=+= MENU =+=+=+=+=+");
           System.out.println("....... "+universidade+" .......");
-          System.out.println(".Coordenador:  "+coordenador+" - Salário: R$ "+coordenador.getSalario());
-          System.out.println(".Diretor: "+diretor+" - Salário: R$ "+diretor.getSalario());
+          System.out.println(".Diretor: "+diretor.getNome()+"\n - Salário: R$ "+diretor.getSalario()+" -");
           System.out.println("\n1 - Institutos");
           System.out.println("2 - Disciplinas");
           System.out.println("3 - Monitores");
           System.out.println("4 - Alunos");
           System.out.println("5 - Professores");
-          System.out.println("6 - Sair");
+          System.out.println("6 - Coordenador");
+          System.out.println("7 - Sair");
 
 
           System.out.print("\n- Opção: ");
           op1 = tec.nextInt();
           tec.nextLine();
 
-          if (op1==6){
+          if (op1==7){
               break;
           }
 
@@ -86,12 +86,25 @@ public class Main {
           }
 
           switch (op1) {
-              case 1 -> {
+              case 1: {
                   System.out.println("\n¨¨¨¨ Institutos ¨¨¨¨¨¨");
                   if (op2 == 2) {
-                      System.out.print("\nNome: ");
+                      System.out.print("\nNome do Curso: ");
                       String nome = tec.nextLine();
+                      System.out.print("\nNome do Coordenador de Curso: ");
+                      String nomeCoordenador = tec.nextLine();
+                      System.out.println("Idade: ");
+                      int idade = tec.nextInt();
+                      tec.nextLine();
+                      System.out.print("\nFormação: ");
+                      String formacao = tec.nextLine();
+                      System.out.print("\nTurma: ");
+                      String turma = tec.nextLine();
+
                       universidade.adicionarInstituto(new Instituto(nome));
+                      universidade.listaInstitutos.get(universidade.listaInstitutos.size()-1).adicionarCoordenador(new Coordenador(nomeCoordenador, nomeCoordenador+"@gmail.com", 38, 11000, formacao, turma));
+                      System.out.println("\n# DADOS ADICIONADOS COM SUCESSO! #\n");
+
                   } else if (op2 == 1) {
                       universidade.imprmirIntitutos();
                   }
@@ -99,8 +112,9 @@ public class Main {
                       System.out.println("* NENHUM CADASTRADO *");
                   }
                   System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
+                  break;
               }
-              case 2 -> {
+              case 2: {
                   System.out.println("\n¨¨¨¨¨¨ Cursos ¨¨¨¨¨¨¨¨");
                   universidade.imprmirIntitutos();
                   System.out.print("\nEm qual Instituto deseja adicionar/ver a disciplina?");
@@ -115,8 +129,9 @@ public class Main {
                       universidade.listaInstitutos.get(instituto - 1).imprimirDisciplina();
                   }
                   System.out.println("\n¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
+                  break;
               }
-              case 3 -> {
+              case 3: {
                   //monitor
                   System.out.println("\n¨¨¨¨¨¨ Monitores ¨¨¨¨¨¨");
                   universidade.imprmirIntitutos();
@@ -137,8 +152,9 @@ public class Main {
                       universidade.listaInstitutos.get(instituto - 1).listaDisciplina.get(disciplina - 1).imprimirMoinitor();
                   }
                   System.out.println("\n¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
+                  break;
               }
-              case 4 -> {
+              case 4: {
                   //aluno
                   System.out.println("\n¨¨¨¨¨¨ Alunos ¨¨¨¨¨¨");
                   universidade.imprmirIntitutos();
@@ -157,8 +173,9 @@ public class Main {
                       universidade.listaInstitutos.get(instituto - 1).listaDisciplina.get(disciplina - 1).imprimirAluno();
                   }
                   System.out.println("\n¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
+                  break;
               }
-              case 5 -> {
+              case 5: {
                   System.out.println("\n¨¨¨¨¨¨ Professores ¨¨¨¨¨¨");
                   universidade.imprmirIntitutos();
                   System.out.print("\nEm qual Instituto deseja adicionar: ");
@@ -177,6 +194,7 @@ public class Main {
                       universidade.listaInstitutos.get(instituto - 1).listaDisciplina.get(disciplina - 1).imprimirProfessor();
                   }
                   System.out.println("\n¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
+                  break;
               }
           }
       }while (op1 != 7) ;
